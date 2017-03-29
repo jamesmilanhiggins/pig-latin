@@ -3,19 +3,24 @@
 var vowels = ["a", "e", "i", "o", "u"];
 var consonants = ["b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", "p", "q", "r", "s", "t", "v", "w", "x", "y", "z"];
 var exceptions = ["qu", "y"];
+// var output = [];
 
-// function to check input for vowels at beginning of word
-var translate = function(input) {
 
-  vowels.forEach(function(vowel) {
-    if (input.toLowerCase().indexOf(vowel) === 0) {
-      vowelInput = input + "ay";
-      alert(vowelInput);
+
+// function to check input for vowels at beginning of words
+var translate = function(word) {
+    if (word.toLowerCase().indexOf("a") === 0
+      || word.toLowerCase().indexOf("e") === 0
+      || word.toLowerCase().indexOf("i") === 0
+      || word.toLowerCase().indexOf("o") === 0
+      || word.toLowerCase().indexOf("u") === 0) {
+      word = word + "ay";
     }
-
-  });
-
+    alert(word);
 }
+
+
+
 
 
 
@@ -26,16 +31,38 @@ $(document).ready(function(){
     event.preventDefault();
 
     var input = $("#userInput input").val();
+    var inputArray = input.split(" ");
 
-    // if (english.indexOf("a") === 0) {
-    //   alert("a");
-    // } else {
-    //   alert("not a");
-    // }
+    inputArray.forEach(function(word) {
+      translate(word);
+    });
 
-    translate(input);
-
-    // $("#output").text(translate(english));
 
   });
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// end
