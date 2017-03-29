@@ -14,6 +14,12 @@ var translate = function(word) {
       word = word + "ay";
     }
   });
+  consonants.forEach(function(consonant) {
+    if (word.toLowerCase().indexOf(consonant) === 0) {
+      word = word.substr(1) + word.substr(0, 1);
+      word = word + "ay";
+    }
+  });
   return word;
 }
 
@@ -30,10 +36,13 @@ $(document).ready(function(){
 
     var input = $("#userInput input").val();
     var inputArray = input.split(" ");
+    var translatedArray = [];
 
     inputArray.forEach(function(word) {
-      alert(translate(word));
+      var translatedWord = translate(word);
+      translatedArray.push(translatedWord);
     });
+    alert(translatedArray.join(" "));
 
 
   });
