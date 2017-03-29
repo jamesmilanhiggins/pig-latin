@@ -9,14 +9,12 @@ var exceptions = ["qu", "y"];
 
 // function to check input for vowels at beginning of words
 var translate = function(word) {
-    if (word.toLowerCase().indexOf("a") === 0
-      || word.toLowerCase().indexOf("e") === 0
-      || word.toLowerCase().indexOf("i") === 0
-      || word.toLowerCase().indexOf("o") === 0
-      || word.toLowerCase().indexOf("u") === 0) {
+  vowels.forEach(function(vowel) {
+    if (word.toLowerCase().indexOf(vowel) === 0) {
       word = word + "ay";
     }
-    alert(word);
+  });
+  return word;
 }
 
 
@@ -34,7 +32,7 @@ $(document).ready(function(){
     var inputArray = input.split(" ");
 
     inputArray.forEach(function(word) {
-      translate(word);
+      alert(translate(word));
     });
 
 
